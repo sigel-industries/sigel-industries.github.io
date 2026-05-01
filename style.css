@@ -283,6 +283,7 @@ iframe {
     border-color 0.2s ease,
     background 0.2s ease,
     box-shadow 0.2s ease;
+  will-change: transform;
 }
 
 .btn:hover {
@@ -291,8 +292,10 @@ iframe {
 
 .btn-primary {
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  background-size: 180% 180%;
   color: white;
   box-shadow: 0 20px 50px rgba(124, 92, 255, 0.28);
+  animation: gradientDrift 8s ease infinite;
 }
 
 .btn-secondary {
@@ -319,6 +322,16 @@ iframe {
 
 .full {
   width: 100%;
+}
+
+@keyframes gradientDrift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .interactive-card {
@@ -366,13 +379,57 @@ iframe {
   box-shadow: 0 26px 70px rgba(0, 0, 0, 0.32);
 }
 
+.audit-snapshot,
+.pdf-callout,
+.benchmark-box,
+.price-card,
+.form-placeholder {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(180deg, rgba(8, 13, 24, 0.96), rgba(8, 13, 24, 0.82)) padding-box,
+    linear-gradient(135deg, rgba(124, 92, 255, 0.45), rgba(49, 215, 197, 0.22), rgba(255, 255, 255, 0.08)) border-box;
+}
+
 .audit-snapshot {
-  border: 1px solid var(--line);
+  position: relative;
   border-radius: 32px;
   padding: 26px;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.085), rgba(255,255,255,0.035));
   box-shadow: var(--shadow);
+}
+
+.audit-snapshot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(49, 215, 197, 0.07) 46%,
+      rgba(49, 215, 197, 0.16) 50%,
+      rgba(49, 215, 197, 0.07) 54%,
+      transparent 100%
+    );
+  transform: translateY(-120%);
+  animation: scanSweep 5.5s ease-in-out infinite;
+  opacity: 0.75;
+}
+
+@keyframes scanSweep {
+  0%, 24% {
+    transform: translateY(-120%);
+  }
+
+  46%, 54% {
+    transform: translateY(0%);
+  }
+
+  76%, 100% {
+    transform: translateY(120%);
+  }
 }
 
 .snapshot-header {
@@ -457,18 +514,34 @@ iframe {
   color: var(--text);
 }
 
-.metric-bar {
+.metric-bar,
+.screen-bar {
   height: 10px;
   border-radius: 999px;
   background: rgba(255,255,255,0.08);
   overflow: hidden;
 }
 
-.metric-bar i {
+.metric-bar i,
+.screen-bar i {
   display: block;
   height: 100%;
   border-radius: inherit;
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transform-origin: left;
+  animation: metricLoad 1.15s ease both;
+}
+
+@keyframes metricLoad {
+  from {
+    transform: scaleX(0);
+    opacity: 0.45;
+  }
+
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
 }
 
 .snapshot-priorities {
@@ -536,6 +609,26 @@ iframe {
 .snapshot-footer a {
   color: var(--accent-2);
   font-weight: 800;
+  position: relative;
+}
+
+.snapshot-footer a::after,
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.22s ease;
+}
+
+.snapshot-footer a:hover::after,
+.footer-links a:hover::after {
+  transform: scaleX(1);
 }
 
 .signal-strip {
@@ -652,6 +745,17 @@ iframe {
   background:
     radial-gradient(circle at 20% 10%, rgba(49, 215, 197, 0.08), transparent 30%),
     rgba(255,255,255,0.045);
+  transition:
+    transform 0.24s ease,
+    border-color 0.24s ease,
+    background 0.24s ease;
+}
+
+.method-step:hover {
+  transform: translateY(-5px);
+  background:
+    radial-gradient(circle at 20% 10%, rgba(49, 215, 197, 0.13), transparent 32%),
+    rgba(255,255,255,0.062);
 }
 
 .method-step span {
@@ -659,6 +763,23 @@ iframe {
   color: var(--accent-2);
   font-weight: 850;
   margin-bottom: 28px;
+  position: relative;
+}
+
+.method-step span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -9px;
+  width: 22px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transition: width 0.22s ease;
+}
+
+.method-step:hover span::after {
+  width: 44px;
 }
 
 .method-step h3 {
@@ -700,9 +821,19 @@ iframe {
     background 0.22s ease;
 }
 
+.feature-card:hover,
+.audit-snapshot:hover,
+.report-main:hover,
+.report-side-card:hover,
+.method-step:hover,
+.signal-item:hover,
+.price-card:hover,
+.form-placeholder:hover {
+  border-color: rgba(49, 215, 197, 0.38);
+}
+
 .feature-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(49, 215, 197, 0.35);
   background: rgba(255,255,255,0.07);
 }
 
@@ -756,7 +887,6 @@ iframe {
 .report-main:hover,
 .report-side-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(49, 215, 197, 0.32);
 }
 
 .report-main {
@@ -823,20 +953,6 @@ iframe {
   display: grid;
   gap: 12px;
   align-content: start;
-}
-
-.screen-bar {
-  height: 12px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.08);
-  overflow: hidden;
-}
-
-.screen-bar i {
-  display: block;
-  height: 100%;
-  border-radius: inherit;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
 }
 
 .screen-mini-grid {
@@ -937,11 +1053,7 @@ iframe {
   gap: 20px;
   align-items: center;
   padding: 24px;
-  border: 1px solid var(--line);
   border-radius: 24px;
-  background:
-    linear-gradient(135deg, rgba(124, 92, 255, 0.11), rgba(49, 215, 197, 0.055)),
-    rgba(255,255,255,0.035);
 }
 
 .pdf-callout h3 {
@@ -952,12 +1064,8 @@ iframe {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 28px;
-  border: 1px solid var(--line);
   border-radius: 28px;
   padding: 34px;
-  background:
-    linear-gradient(135deg, rgba(124, 92, 255, 0.1), rgba(49, 215, 197, 0.05)),
-    rgba(255,255,255,0.03);
 }
 
 .benchmark-copy h2 {
@@ -979,6 +1087,16 @@ iframe {
   background: rgba(255,255,255,0.05);
   color: var(--text);
   font-size: 0.9rem;
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease;
+}
+
+.tag:hover {
+  transform: translateY(-3px);
+  border-color: rgba(49, 215, 197, 0.35);
+  background: rgba(49, 215, 197, 0.07);
 }
 
 .beta-grid,
@@ -1040,9 +1158,6 @@ iframe {
 .form-placeholder {
   padding: 28px;
   border-radius: 24px;
-  border: 1px solid var(--line);
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.035));
 }
 
 .price-label {
@@ -1122,8 +1237,16 @@ details p {
   color: var(--muted);
 }
 
+.footer-links a {
+  position: relative;
+}
+
 .footer-links a:hover {
   color: var(--text);
+}
+
+.mobile-sticky-cta {
+  display: none;
 }
 
 @media (max-width: 1080px) {
@@ -1164,6 +1287,10 @@ details p {
 }
 
 @media (max-width: 760px) {
+  body {
+    padding-bottom: 82px;
+  }
+
   .container {
     width: min(100% - 28px, var(--max));
   }
@@ -1225,7 +1352,59 @@ details p {
     flex-direction: column;
   }
 
+  .mobile-sticky-cta {
+    position: fixed;
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    z-index: 200;
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 0 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(49, 215, 197, 0.34);
+    background:
+      linear-gradient(135deg, rgba(124, 92, 255, 0.92), rgba(49, 215, 197, 0.86));
+    box-shadow:
+      0 22px 70px rgba(0, 0, 0, 0.46),
+      0 0 0 1px rgba(255,255,255,0.08) inset;
+    backdrop-filter: blur(18px);
+    color: white;
+    font-weight: 850;
+  }
+
+  .mobile-sticky-cta span {
+    font-size: 0.96rem;
+  }
+
+  .mobile-sticky-cta strong {
+    font-size: 0.92rem;
+    opacity: 0.92;
+  }
+
+  .audit-snapshot::after {
+    animation-duration: 7s;
+    opacity: 0.5;
+  }
+
   .footer-inner {
     flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .audit-snapshot::after,
+  .btn-primary,
+  .metric-bar i,
+  .screen-bar i,
+  .mobile-sticky-cta {
+    animation: none;
+  }
+
+  .reveal {
+    transition: none;
   }
 }
