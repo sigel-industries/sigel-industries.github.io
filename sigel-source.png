@@ -1,0 +1,31 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sigelGradient" x1="128" y1="96" x2="384" y2="416" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#8B5CF6"></stop>
+      <stop offset="52%" stop-color="#5B8CFF"></stop>
+      <stop offset="100%" stop-color="#31D7C5"></stop>
+    </linearGradient>
+
+    <linearGradient id="borderGradient" x1="40" y1="40" x2="472" y2="472" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7C5CFF" stop-opacity="0.85"></stop>
+      <stop offset="100%" stop-color="#31D7C5" stop-opacity="0.75"></stop>
+    </linearGradient>
+
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur"></feGaussianBlur>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.20
+                0 0 0 0 0.84
+                0 0 0 0 0.77
+                0 0 0 0.42 0"></feColorMatrix>
+      <feMerge>
+        <feMergeNode></feMergeNode>
+        <feMergeNode in="SourceGraphic"></feMergeNode>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" rx="112" fill="#060910"></rect>
+  <rect x="22" y="22" width="468" height="468" rx="96" fill="#0B1020" stroke="url(#borderGradient)" stroke-width="3"></rect>
+
+  <path d="M344 144H210C177 144 152 166 152 197C152 224 170 240 199 249L307 282C339 292 360 313 360 345C360 383 330 408 287 408H160" fill="none" stroke="url(#sigelGradient)" stroke-width="58" stroke-linecap="round" stroke-linejoin="round" filter="url(#softGlow)"></path>
+</svg>
