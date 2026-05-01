@@ -1689,21 +1689,18 @@ details p {
 
 @media (max-width: 768px) {
   .form-popup-card {
-    padding: 28px;
+    padding: 34px 24px;
   }
 
   .popup-features {
     flex-direction: column;
     align-items: center;
   }
-  .tally-trigger {
-  width: 100%;
-  min-width: unset;
-}
 
-.form-popup-card {
-  padding: 34px 24px;
-}
+  .tally-trigger {
+    width: 100%;
+    min-width: unset;
+  }
 
   .form-popup-card h3 {
     font-size: 30px;
