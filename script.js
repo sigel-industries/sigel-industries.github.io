@@ -4,6 +4,7 @@ const navLinks = document.querySelectorAll(".nav a");
 const revealItems = document.querySelectorAll(".reveal");
 const tiltCards = document.querySelectorAll(".tilt-card");
 const interactiveCards = document.querySelectorAll(".interactive-card");
+const magneticButtons = document.querySelectorAll(".btn");
 
 window.addEventListener("scroll", () => {
   if (window.scrollY > 20) {
@@ -97,6 +98,20 @@ if (!reduceMotion) {
 
     card.addEventListener("mouseleave", () => {
       card.style.transform = "";
+    });
+  });
+
+  magneticButtons.forEach((button) => {
+    button.addEventListener("mousemove", (event) => {
+      const rect = button.getBoundingClientRect();
+      const x = event.clientX - rect.left - rect.width / 2;
+      const y = event.clientY - rect.top - rect.height / 2;
+
+      button.style.transform = `translate(${x * 0.08}px, ${y * 0.12}px)`;
+    });
+
+    button.addEventListener("mouseleave", () => {
+      button.style.transform = "";
     });
   });
 }
