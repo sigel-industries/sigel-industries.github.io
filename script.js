@@ -1,4 +1,9 @@
 const header = document.querySelector(".site-header");
+const sections = document.querySelectorAll("main section[id]");
+const navLinks = document.querySelectorAll(".nav a");
+const revealItems = document.querySelectorAll(".reveal");
+const tiltCards = document.querySelectorAll(".tilt-card");
+const interactiveCards = document.querySelectorAll(".interactive-card");
 
 window.addEventListener("scroll", () => {
   if (window.scrollY > 20) {
@@ -6,16 +11,16 @@ window.addEventListener("scroll", () => {
   } else {
     header.classList.remove("is-scrolled");
   }
+
+  updateActiveNav();
 });
 
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener("click", (event) => {
     const targetId = link.getAttribute("href");
-
     if (!targetId || targetId === "#") return;
 
     const target = document.querySelector(targetId);
-
     if (!target) return;
 
     event.preventDefault();
@@ -26,7 +31,24 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
   });
 });
 
-const revealItems = document.querySelectorAll(".reveal");
+function updateActiveNav() {
+  let currentId = "";
+
+  sections.forEach((section) => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top <= 140 && rect.bottom >= 140) {
+      currentId = section.id;
+    }
+  });
+
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+    const href = link.getAttribute("href");
+    if (href === `#${currentId}`) {
+      link.classList.add("active");
+    }
+  });
+}
 
 const revealObserver = new IntersectionObserver(
   (entries) => {
@@ -43,3 +65,40 @@ const revealObserver = new IntersectionObserver(
 );
 
 revealItems.forEach((item) => revealObserver.observe(item));
+
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+interactiveCards.forEach((card) => {
+  card.addEventListener("mousemove", (event) => {
+    const rect = card.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    card.style.setProperty("--x", `${x}px`);
+    card.style.setProperty("--y", `${y}px`);
+  });
+});
+
+if (!reduceMotion) {
+  tiltCards.forEach((card) => {
+    card.addEventListener("mousemove", (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateX = ((y - centerY) / centerY) * -4;
+      const rotateY = ((x - centerX) / centerX) * 4;
+
+      card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "";
+    });
+  });
+}
+
+updateActiveNav();
