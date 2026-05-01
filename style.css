@@ -882,3 +882,49 @@ details p {
     padding: 24px;
   }
 }
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+main,
+section,
+.container {
+  max-width: 100%;
+}
+
+.hero-panel::before {
+  inset: -20px;
+}
+
+@media (max-width: 680px) {
+  .hero-panel::before {
+    inset: -8px;
+    filter: blur(28px);
+  }
+
+  .score-card,
+  .beta-box,
+  .order-box,
+  .report-tile,
+  .feature-card,
+  .card,
+  .process-step,
+  .signal-item {
+    max-width: 100%;
+  }
+
+  .score-main {
+    flex-wrap: wrap;
+  }
+
+  .score-number {
+    font-size: 4.8rem;
+  }
+
+  .price-card strong {
+    font-size: 2.6rem;
+  }
+}
