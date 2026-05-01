@@ -1418,7 +1418,10 @@ details p {
 
   .reveal {
     transition: none;
+  }
+}
 
+/* Legal pages */
 
 .legal-page {
   padding-top: 118px;
