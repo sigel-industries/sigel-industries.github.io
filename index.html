@@ -17,6 +17,7 @@
 
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <div class="page-noise" aria-hidden="true"></div>
 
@@ -62,13 +63,27 @@
           </div>
         </div>
 
-        <div class="hero-visual reveal tilt-card interactive-card">
-          <div class="hero-visual-top">
-            <span class="small-badge">Sigel Web Audit</span>
-            <span class="small-badge accent">BETA</span>
+        <div class="hero-visual hero-stack reveal tilt-card interactive-card">
+          <div class="floating-badge badge-seo">SEO 100</div>
+          <div class="floating-badge badge-mobile">Mobile OK</div>
+          <div class="floating-badge badge-pdf">PDF report</div>
+
+          <div class="stack-card stack-card-back">
+            <span>Roadmapa priorit</span>
+            <strong>30 / 60 / 90 dní</strong>
           </div>
 
-          <div class="hero-report-card">
+          <div class="stack-card stack-card-mid">
+            <span>Značka & publikum</span>
+            <strong>Archetypy + komunikace</strong>
+          </div>
+
+          <div class="hero-report-card stack-card-front">
+            <div class="hero-visual-top">
+              <span class="small-badge">Sigel Web Audit</span>
+              <span class="small-badge accent">BETA</span>
+            </div>
+
             <div class="hero-report-head">
               <div class="report-chip"></div>
               <div class="report-chip short"></div>
@@ -109,16 +124,16 @@
 
             <div class="hero-mini-panels">
               <div class="mini-panel">
-                <span>CTA</span>
-                <strong>OK</strong>
+                <span>Výstup</span>
+                <strong>PDF</strong>
               </div>
               <div class="mini-panel">
-                <span>SEO</span>
-                <strong>100</strong>
+                <span>Kontrola</span>
+                <strong>ruční QA</strong>
               </div>
               <div class="mini-panel">
-                <span>Mobile</span>
-                <strong>Ready</strong>
+                <span>Priorita</span>
+                <strong>akční plán</strong>
               </div>
             </div>
           </div>
@@ -176,15 +191,47 @@
       </div>
     </section>
 
-    <section class="section principle">
+    <section class="section method">
       <div class="container">
-        <div class="principle-box reveal tilt-card interactive-card">
-          <p class="eyebrow">Princip Sigel</p>
-          <h2>Nejdřív stav. Potom interpretace. Až pak rozhodnutí.</h2>
+        <div class="method-heading reveal">
+          <p class="eyebrow">Metoda Sigel</p>
+          <h2>Data nestačí. Musí z nich vzniknout rozhodnutí.</h2>
           <p>
-            Sigel není další „uděláme reklamu a uvidíme“. Začíná diagnostikou:
-            co web komunikuje, jak funguje technicky a jestli podporuje obchodní cíl.
+            Audit není jen výpis nálezů. Cílem je převést data do interpretace, priorit a praktického výstupu,
+            který pomůže rozhodnout, co má smysl řešit jako první.
           </p>
+        </div>
+
+        <div class="method-flow reveal">
+          <div class="method-step interactive-card">
+            <span>01</span>
+            <h3>Data</h3>
+            <p>Technika, SEO, UX, CTA, obsah, komunikace a dostupné signály webu.</p>
+          </div>
+
+          <div class="method-arrow">→</div>
+
+          <div class="method-step interactive-card">
+            <span>02</span>
+            <h3>Interpretace</h3>
+            <p>Co nálezy znamenají pro důvěru, orientaci a obchodní použitelnost.</p>
+          </div>
+
+          <div class="method-arrow">→</div>
+
+          <div class="method-step interactive-card">
+            <span>03</span>
+            <h3>Priority</h3>
+            <p>Co řešit jako první, co má dopad a co může počkat.</p>
+          </div>
+
+          <div class="method-arrow">→</div>
+
+          <div class="method-step interactive-card">
+            <span>04</span>
+            <h3>Report</h3>
+            <p>Vizuální výstup, který se dá číst, předat a použít.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -268,6 +315,21 @@
             </a>
             <a href="#order" class="btn btn-secondary">Objednat vlastní audit</a>
           </div>
+
+          <div class="pdf-callout reveal interactive-card">
+            <div>
+              <span class="preview-label">Ukázkový výstup</span>
+              <h3>Otevřete si reálný demo report</h3>
+              <p>
+                Ukázka ukazuje strukturu výstupu: skóre, technické nálezy, komunikaci,
+                archetypy, roadmapu a appendix. Přesně ten typ výstupu klient dostane po auditu.
+              </p>
+            </div>
+
+            <a href="docs/demo-report.pdf" class="btn btn-secondary" target="_blank" rel="noopener">
+              Zobrazit PDF
+            </a>
+          </div>
         </div>
 
         <div class="report-grid">
@@ -338,7 +400,7 @@
     </section>
 
     <section id="data" class="section benchmark">
-      <div class="container benchmark-box reveal">
+      <div class="container benchmark-box reveal interactive-card">
         <div class="benchmark-copy">
           <p class="eyebrow">Datový rozměr</p>
           <h2>Jedna URL je začátek. Větší obraz vzniká z porovnání.</h2>
@@ -435,16 +497,15 @@
           <p class="eyebrow">Objednávka</p>
           <h2>Objednat Sigel Web Audit</h2>
           <p>
-            Beta objednávky zatím přijímáme e-mailem.
             Pošlete URL webu, fakturační údaje a preferovaný jazyk reportu.
-            Zálohovou fakturu pošleme obratem.
+            Po objednávce pošleme zálohovou fakturu. Audit začíná až po potvrzení platby.
           </p>
         </div>
 
         <div class="form-placeholder interactive-card tilt-card">
-          <h3>Objednat e-mailem</h3>
+          <h3>Beta objednávka</h3>
           <p>
-            Tally formulář bude doplněn v další verzi. Do té doby je možné poslat poptávku e-mailem.
+            Formulář bude doplněn po napojení automatizace. Do té doby přijímáme beta objednávky e-mailem.
           </p>
           <a href="mailto:sigelindustries@gmail.com?subject=Objednávka%20Sigel%20Web%20Audit" class="btn btn-secondary full">
             Kontaktovat e-mailem
