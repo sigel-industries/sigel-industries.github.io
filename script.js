@@ -117,3 +117,12 @@ if (!reduceMotion) {
 }
 
 updateActiveNav();
+
+// Include the Tally widget script in the <head> section of your page
+<script src="https://tally.so/widgets/embed.js"></script>
+
+// Add the embed in your HTML
+<iframe data-tally-src="https://tally.so/embed/jaGlJ1?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="1366" frameborder="0" marginheight="0" marginwidth="0" title="Objednávka Sigel Web Audit"></iframe>
+
+// Load all embeds on the page
+Tally.loadEmbeds();
