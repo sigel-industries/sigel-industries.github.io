@@ -19,7 +19,9 @@
 </head>
 
 <body>
-  <div class="page-noise" aria-hidden="true"></div>
+  <div class="page-grid" aria-hidden="true"></div>
+  <div class="page-glow page-glow-a" aria-hidden="true"></div>
+  <div class="page-glow page-glow-b" aria-hidden="true"></div>
 
   <header class="site-header">
     <div class="container header-inner">
@@ -42,7 +44,7 @@
     <section class="hero section">
       <div class="container hero-grid">
         <div class="hero-copy reveal">
-          <p class="eyebrow">Datově-strategická diagnostika webu</p>
+          <p class="eyebrow">Web audit před dalším marketingovým krokem</p>
 
           <h1>Nejdřív stav webu. Až potom marketing.</h1>
 
@@ -53,7 +55,7 @@
 
           <div class="hero-actions">
             <a href="#order" class="btn btn-primary btn-shine">Objednat beta audit</a>
-            <a href="#report" class="btn btn-secondary">Podívat se na výstup</a>
+            <a href="docs/demo-report.pdf" class="btn btn-secondary" target="_blank" rel="noopener">Otevřít demo report</a>
           </div>
 
           <div class="hero-meta">
@@ -63,81 +65,87 @@
           </div>
         </div>
 
-        <div class="hero-visual hero-stack reveal tilt-card interactive-card">
-          <div class="floating-badge badge-seo">SEO 100</div>
-          <div class="floating-badge badge-mobile">Mobile OK</div>
-          <div class="floating-badge badge-pdf">PDF report</div>
-
-          <div class="stack-card stack-card-back">
-            <span>Roadmapa priorit</span>
-            <strong>30 / 60 / 90 dní</strong>
+        <aside class="audit-snapshot reveal interactive-card tilt-card" aria-label="Ukázka auditního výstupu">
+          <div class="snapshot-header">
+            <div>
+              <span class="snapshot-kicker">Audit Snapshot</span>
+              <h2>sigel-industries.github.io</h2>
+            </div>
+            <span class="snapshot-badge">BETA</span>
           </div>
 
-          <div class="stack-card stack-card-mid">
-            <span>Značka & publikum</span>
-            <strong>Archetypy + komunikace</strong>
-          </div>
-
-          <div class="hero-report-card stack-card-front">
-            <div class="hero-visual-top">
-              <span class="small-badge">Sigel Web Audit</span>
-              <span class="small-badge accent">BETA</span>
+          <div class="snapshot-score-block">
+            <div class="snapshot-score">
+              <strong>83</strong>
+              <span>audit skóre</span>
             </div>
 
-            <div class="hero-report-head">
-              <div class="report-chip"></div>
-              <div class="report-chip short"></div>
-            </div>
-
-            <div class="hero-score-row">
-              <div class="hero-score">
-                <span class="hero-score-number">83</span>
-                <span class="hero-score-label">audit skóre</span>
-              </div>
-
-              <div class="hero-bars">
-                <div class="metric-line">
-                  <span>SEO</span>
-                  <strong>85</strong>
-                </div>
-                <div class="metric-fill"><i style="width: 85%"></i></div>
-
-                <div class="metric-line">
-                  <span>Technika</span>
-                  <strong>81</strong>
-                </div>
-                <div class="metric-fill"><i style="width: 81%"></i></div>
-
-                <div class="metric-line">
-                  <span>UX</span>
-                  <strong>100</strong>
-                </div>
-                <div class="metric-fill"><i style="width: 100%"></i></div>
-
-                <div class="metric-line">
-                  <span>Komunikace</span>
-                  <strong>81</strong>
-                </div>
-                <div class="metric-fill"><i style="width: 81%"></i></div>
-              </div>
-            </div>
-
-            <div class="hero-mini-panels">
-              <div class="mini-panel">
-                <span>Výstup</span>
-                <strong>PDF</strong>
-              </div>
-              <div class="mini-panel">
-                <span>Kontrola</span>
-                <strong>ruční QA</strong>
-              </div>
-              <div class="mini-panel">
-                <span>Priorita</span>
-                <strong>akční plán</strong>
-              </div>
+            <div class="snapshot-summary">
+              <p>Silný technický základ. Hlavní práce je v komunikaci, důvěře a prioritách.</p>
             </div>
           </div>
-        </div>
+
+          <div class="snapshot-metrics">
+            <div class="metric">
+              <div class="metric-top">
+                <span>SEO</span>
+                <strong>100</strong>
+              </div>
+              <div class="metric-bar"><i style="width: 100%"></i></div>
+            </div>
+
+            <div class="metric">
+              <div class="metric-top">
+                <span>Technika</span>
+                <strong>99</strong>
+              </div>
+              <div class="metric-bar"><i style="width: 99%"></i></div>
+            </div>
+
+            <div class="metric">
+              <div class="metric-top">
+                <span>UX / mobil</span>
+                <strong>88</strong>
+              </div>
+              <div class="metric-bar"><i style="width: 88%"></i></div>
+            </div>
+
+            <div class="metric">
+              <div class="metric-top">
+                <span>Komunikace</span>
+                <strong>82</strong>
+              </div>
+              <div class="metric-bar"><i style="width: 82%"></i></div>
+            </div>
+          </div>
+
+          <div class="snapshot-priorities">
+            <div class="priority-title">
+              <span>Top priority</span>
+              <strong>První kroky</strong>
+            </div>
+
+            <ol>
+              <li>
+                <span>01</span>
+                <p>Zpřesnit úvodní vysvětlení nabídky a další krok.</p>
+              </li>
+              <li>
+                <span>02</span>
+                <p>Ověřit mobilní cestu, CTA a hlavní rozhodovací body.</p>
+              </li>
+              <li>
+                <span>03</span>
+                <p>Posílit důkazové prvky a komunikační hierarchii.</p>
+              </li>
+            </ol>
+          </div>
+
+          <div class="snapshot-footer">
+            <span>Výstup: vizuální PDF report</span>
+            <a href="#report">Zobrazit strukturu</a>
+          </div>
+        </aside>
       </div>
     </section>
 
@@ -155,7 +163,7 @@
 
         <div class="signal-item interactive-card">
           <span>PDF</span>
-          <p>vizuální report místo textové cihly, kterou nikdo nechce číst</p>
+          <p>vizuální report místo nepřehledného textového výstupu</p>
         </div>
 
         <div class="signal-item interactive-card">
@@ -177,16 +185,14 @@
           </p>
         </div>
 
-        <div class="problem-side reveal">
-          <div class="problem-card interactive-card">
-            <div class="problem-label">Běžný scénář</div>
-            <ul>
-              <li>spustí se kampaň</li>
-              <li>přijdou návštěvníci</li>
-              <li>web nevysvětlí hodnotu</li>
-              <li>výsledek = drahý chaos</li>
-            </ul>
-          </div>
+        <div class="problem-card reveal interactive-card">
+          <span class="card-label">Běžný scénář</span>
+          <ul>
+            <li>spustí se kampaň</li>
+            <li>přijdou návštěvníci</li>
+            <li>web nevysvětlí hodnotu</li>
+            <li>výsledek je drahý chaos</li>
+          </ul>
         </div>
       </div>
     </section>
