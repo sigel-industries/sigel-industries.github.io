@@ -515,21 +515,43 @@
           </p>
         </div>
 
-        <div class="form-placeholder interactive-card tilt-card">
-          <h3>Beta objednávka</h3>
-          <p>
-            Formulář bude doplněn po napojení automatizace. Do té doby přijímáme beta objednávky e-mailem.
-          </p>
-          <a href="mailto:sigelsro@gmail.com?subject=Objednávka%20Sigel%20Web%20Audit" class="btn btn-secondary full">
-            Kontaktovat e-mailem
-          </a>
-        </div>
+       <div class="form-popup-card interactive-card tilt-card">
+  <div class="popup-glow"></div>
+
+  <span class="popup-badge">BETA OBJEDNÁVKA</span>
+
+  <h3>Spustit objednávku auditu</h3>
+
+  <p>
+    Vyplňte krátký formulář s URL webu a fakturačními údaji.
+    Po potvrzení objednávky zašleme zálohovou fakturu.
+  </p>
+
+  <div class="popup-features">
+    <span>PDF report</span>
+    <span>24 h dodání</span>
+    <span>Beta cena 2 490 Kč</span>
+  </div>
+
+  <button
+    class="btn btn-primary btn-shine full tally-trigger"
+    data-tally-open="jaGlJ1"
+    data-tally-layout="modal"
+    data-tally-width="720"
+    data-tally-overlay="1"
+    data-tally-auto-close="2000"
+  >
+    Otevřít objednávkový formulář
+  </button>
+
+  <p class="popup-note">
+    Formulář se otevře v zabezpečeném popup okně bez opuštění webu.
+  </p>
+</div>
       </div>
     </section>
   </main>
-<iframe data-tally-src="https://tally.so/embed/jaGlJ1?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="1366" frameborder="0" marginheight="0" marginwidth="0" title="Objednávka Sigel Web Audit"></iframe>
-<script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
-  <footer class="site-footer">
+ <footer class="site-footer">
     <div class="container footer-inner">
       <div>
         <strong>SIGEL INDUSTRIES</strong>
@@ -550,5 +572,6 @@
   </a>
 
   <script src="script.js"></script>
+  <script async src="https://tally.so/widgets/embed.js"></script>
 </body>
 </html>
